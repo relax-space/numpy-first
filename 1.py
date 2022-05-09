@@ -24,9 +24,12 @@ def test_3():
 def test_4():
     # reshape: https://blog.csdn.net/u012435142/article/details/84404708
     a1 = np.arange(6).reshape(2, 3)
-    assert [[0, 1, 2], [3, 4, 5]] == a1.tolist(), 'np reshape error'
+    assert [[0, 1, 2], 
+            [3, 4, 5]] == a1.tolist(), 'np reshape error'
     b1 = a1.reshape(3, 2)
-    assert [[0, 1], [2, 3], [4, 5]] == b1.tolist(), 'np reshape 2 error'
+    assert [[0, 1], 
+            [2, 3], 
+            [4, 5]] == b1.tolist(), 'np reshape 2 error'
 
 
 def test_5():
