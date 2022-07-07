@@ -24,32 +24,26 @@ def test_3():
 def test_4():
     # reshape: https://blog.csdn.net/u012435142/article/details/84404708
     a1 = np.arange(6).reshape(2, 3)
-    assert [[0, 1, 2], 
-            [3, 4, 5]] == a1.tolist(), 'np reshape error'
+    assert [[0, 1, 2], [3, 4, 5]] == a1.tolist(), 'np reshape error'
     b1 = a1.reshape(3, 2)
-    assert [[0, 1], 
-            [2, 3], 
-            [4, 5]] == b1.tolist(), 'np reshape 2 error'
+    assert [[0, 1], [2, 3], [4, 5]] == b1.tolist(), 'np reshape 2 error'
 
 
 def test_5():
     # reshape 2, 竖着读,竖着写, 比如写入第一列 0 4 ,然后写入第2列 8 12
     a1 = np.arange(16).reshape(4, 4)
-    assert [[0, 1, 2, 3],
-            [4, 5, 6, 7],
-            [8, 9, 10, 11],
+    assert [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11],
             [12, 13, 14, 15]] == a1.tolist(), 'np reshape f error'
     b1 = np.reshape(a1, newshape=(2, 8), order='F')
     assert [[0, 8, 1, 9, 2, 10, 3, 11],
-            [4, 12, 5, 13, 6, 14, 7, 15]] == b1.tolist(), 'np reshape f 2 error'
+            [4, 12, 5, 13, 6, 14, 7,
+             15]] == b1.tolist(), 'np reshape f 2 error'
 
 
 def test_6():
     # ravel, 看看这种效果: https://www.xknote.com/blog/388832.html
     a1 = np.arange(16).reshape(4, 4)
-    assert [[0, 1, 2, 3],
-            [4, 5, 6, 7],
-            [8, 9, 10, 11],
+    assert [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11],
             [12, 13, 14, 15]] == a1.tolist(), 'np ravel f 1 error'
     b1 = np.ravel(a1, order='F').reshape(2, 8)
     assert [[0, 4, 8, 12, 1, 5, 9, 13],
@@ -69,5 +63,3 @@ def test_7():
 
     a1 = np.ones((2, 1))
     assert [[1.], [1.]] == a1.tolist(), 'np ones error'
-
-

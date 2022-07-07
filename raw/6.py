@@ -36,7 +36,7 @@ def test_2():
 
     如果是三维,请参看: https://blog.csdn.net/ldm_666/article/details/107183244
     '''
-    a1 = np.array([[10, 20, 30],
+    a1:np.ndarray = np.array([[10, 20, 30],
                    [40, 50, 60]])
     b1 = np.transpose(a1, [1, 0])
     c1 = np.swapaxes(a1, 0, 1)

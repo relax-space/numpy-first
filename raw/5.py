@@ -1,5 +1,4 @@
-
-import numpy as  np
+import numpy as np
 
 
 def test_1():
@@ -8,7 +7,7 @@ def test_1():
     assert [[0, 1], [2, 3]]
     b1 = [i.tolist() for i in np.nditer(a1)]
     c1 = [i for i in a1.flat]
-    assert [0, 1, 2, 3] == b1 and b1 == c1, 'np flat error'
+    assert [0, 1, 2, 3] == b1 == c1, 'np flat error'
 
 
 def test_2():
@@ -18,9 +17,7 @@ def test_2():
     c1 = a1.flatten()
     d1 = a1.ravel()
     a1[0][1] = 100
+    print(b1, c1,d1)
     assert [0, 100, 2, 3] == [i for i in b1], 'np flatten 2 error'
     assert [0, 1, 2, 3] == c1.tolist(), 'np flatten error'
     assert [0, 100, 2, 3] == d1.tolist(), 'np flatten 2 error'
-    
-
-

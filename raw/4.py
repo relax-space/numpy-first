@@ -6,6 +6,7 @@ import numpy as np
 
 def test_1():
     a1 = np.arange(6).reshape(2, 3)
+    print(a1.flags)
     assert [[0, 1, 2], [3, 4, 5]] == a1.tolist(), 'np nditer error'
     b1 = [i for i in np.nditer(a1)]
     assert [0, 1, 2, 3, 4, 5] == b1, 'np nditer error'
@@ -47,7 +48,7 @@ def test_4():
 
 
 def test_5():
-    # C 按列, F 按行, external_loop 将多维变成2维
+    # C 横着读, F 竖着读, external_loop 将多维变成2维
     raw = [[1, 2], [3, 4]]
     c = np.array(raw, order='C')
     assert [[1, 3], [2, 4]] == [
@@ -59,6 +60,9 @@ def test_5():
         i.tolist() for i in np.nditer(c, flags=['external_loop'], order='C')
     ], 'np nditer order 2 error'
 
+    c = np.array(raw, order='C')
+    print(
+        [i.tolist() for i in np.nditer(c, flags=['external_loop'], order='C')])
     c = np.array(raw)
     assert [[1, 2, 3, 4]
             ] == [i.tolist() for i in np.nditer(c, flags=['external_loop'])

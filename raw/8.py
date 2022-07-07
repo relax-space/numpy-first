@@ -61,7 +61,8 @@ def test_3():
 
 def test_4():
     # resize 2, 新数组大于原数组时,会重复
-    a1 = np.array([[0, 1], [2, 3]])
+    a1 = np.array([[0, 1],
+                   [2, 3]])
 
     b1 = np.resize(a1, (2, 3))
 
